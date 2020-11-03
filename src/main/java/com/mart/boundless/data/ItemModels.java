@@ -10,7 +10,6 @@ import net.minecraftforge.fml.RegistryObject;
 
 public class ItemModels extends ItemModelProvider {
 
-
     public ItemModels(DataGenerator generator, ExistingFileHelper existingFileHelper) {
         super(generator, Boundless.MOD_ID, existingFileHelper);
     }
@@ -23,6 +22,4 @@ public class ItemModels extends ItemModelProvider {
         }
 
     }
-
-
 }

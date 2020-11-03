@@ -26,4 +26,6 @@ public class DataGenerators {
         InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE, () -> new SlotTypeMessage.Builder("charm").build());
 
     }
+
+
 }
