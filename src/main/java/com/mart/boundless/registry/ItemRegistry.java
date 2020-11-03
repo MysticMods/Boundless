@@ -13,6 +13,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class ItemRegistry {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Boundless.MOD_ID);
 
+    //public static final RegistryObject<Item> cosmic_crystal = ITEMS.register("cosmic_crystal", () -> new Item(new Item.Properties().group(Boundless.ITEM_GROUP)));
     public static final RegistryObject<Item> cosmic_crystal = ITEMS.register("cosmic_crystal", () -> new Item(new Item.Properties().group(Boundless.ITEM_GROUP)));
     public static final RegistryObject<Item> sun_attuned_crystal = ITEMS.register("sun_attuned_crystal", () -> new Item(new Item.Properties().group(Boundless.ITEM_GROUP)));
 

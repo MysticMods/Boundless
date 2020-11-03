@@ -8,6 +8,11 @@ buildscript {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '3.+', changing: true
     }
 }
+
+plugins {
+    id 'com.github.johnrengelman.shadow' version '5.2.0'
+}
+
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
@@ -50,6 +55,14 @@ repositories {
         name = "Curios"
         url = "https://maven.theillusivec4.top/"
     }
+}
+
+configurations {
+    shade
+}
+shadowJar {
+    configurations = [project.configurations.shade]
+    relocate 'com.tterrag.registrate', 'com.mart.boundless.repack.registrate'
 }
 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
@@ -120,6 +133,10 @@ dependencies {
 
     compileOnly fg.deobf('com.feed_the_beast.mods:ftb-gui-library:1.0.0.18')
 
+    def registrate = "com.tterrag.registrate:Registrate:MC1.16.2-1.0.0-beta.6"
+    implementation fg.deobf(registrate)
+    shade registrate
+
 }
 
 jar {
@@ -150,3 +167,4 @@ publishing {
         }
     }
 }
+
