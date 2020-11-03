@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "boundless:heat_charm"
+    "boundless:heat_charm",
+    "boundless:growth_charm"
   ]
 }
