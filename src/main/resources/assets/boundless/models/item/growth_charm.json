@@ -1,6 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "boundless:items/charm/growth_charm"
-  }
-}

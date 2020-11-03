@@ -6,8 +6,8 @@ import net.minecraft.item.Item;
 
 public class GrowthCharmItem extends Item {
 
-    public GrowthCharmItem() {
-        super(new Properties().group(Boundless.ITEM_GROUP).maxStackSize(1));
-    }
 
+    public GrowthCharmItem(Properties properties) {
+        super(properties);
+    }
 }
