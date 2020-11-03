@@ -1,0 +1,28 @@
+modLoader="javafml"
+loaderVersion="[31,)"
+issueTrackerURL="http://minecraftforge.net"
+license="MIT"
+
+[[mods]]
+modId="boundless"
+version="0.1"
+displayName="Boundless"
+credits="I'd like to thank you."
+authors="Martacus"
+description='''
+      What if there was a way to extract the Dao out of thin air. Would you not spend eons searching for it? We humans are unlucky to live a short life.. but I didn't need eons. I only needed decades. I have done enough for now, it is time to pass this knowledge on. This is my gift to you. -Grandpa
+      '''
+
+[[dependencies.boundless]]
+modId="forge"
+mandatory=true
+versionRange="[31,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.boundless]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.16.4]"
+ordering="NONE"
+side="BOTH"

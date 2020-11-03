@@ -1,0 +1,13 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+  },
+  "variants": {
+    "normal": {
+      "model": "boundless:cosmic_infuser"
+    },
+    "inventory": {
+      "model": "boundless:cosmic_infuser"
+    }
+  }
+}

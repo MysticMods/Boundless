@@ -1,0 +1,13 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+  },
+  "variants": {
+    "normal": {
+      "model": "boundless:altar_base"
+    },
+    "inventory": {
+      "model": "boundless:altar_base"
+    }
+  }
+}

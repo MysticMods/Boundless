@@ -1,0 +1,13 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+  },
+  "variants": {
+    "normal": {
+      "model": "boundless:ancient_lens"
+    },
+    "inventory": {
+      "model": "boundless:ancient_lens"
+    }
+  }
+}
