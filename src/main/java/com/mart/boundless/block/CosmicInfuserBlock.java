@@ -6,8 +6,11 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 
 public class CosmicInfuserBlock extends Block {
-
-    public CosmicInfuserBlock() {
-        super(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool().hardnessAndResistance(3F, 3.0F));
+    public CosmicInfuserBlock(Properties properties) {
+        super(properties);
     }
+
+//    public CosmicInfuserBlock() {
+//        super(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool().hardnessAndResistance(3F, 3.0F));
+//    }
 }

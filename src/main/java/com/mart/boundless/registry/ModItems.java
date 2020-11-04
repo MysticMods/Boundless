@@ -6,7 +6,7 @@ import net.minecraft.item.Item;
 
 import static com.mart.boundless.Boundless.REGISTRATE;
 
-public class ItemRegistry {
+public class ModItems {
 
     public static final RegistryEntry<Item> cosmic_crystal = REGISTRATE.item("cosmic_crystal", Item::new)
             .register();

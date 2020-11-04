@@ -1,8 +1,8 @@
 package com.mart.boundless;
 
 import com.mart.boundless.item.BoundlessItemGroup;
-import com.mart.boundless.registry.BlockRegistry;
-import com.mart.boundless.registry.ItemRegistry;
+import com.mart.boundless.registry.ModBlocks;
+import com.mart.boundless.registry.ModItems;
 import com.tterrag.registrate.Registrate;
 import com.tterrag.registrate.util.nullness.NonNullSupplier;
 import net.minecraft.item.ItemGroup;
@@ -25,8 +25,8 @@ public class Boundless {
         REGISTRATE = Registrate.create(Boundless.MOD_ID);
         REGISTRATE.itemGroup(NonNullSupplier.of(() -> ITEM_GROUP));
 
-        ItemRegistry.setup();
-        BlockRegistry.setup();
+        ModItems.setup();
+        ModBlocks.setup();
     }
 
     public void setup(final FMLCommonSetupEvent event) {

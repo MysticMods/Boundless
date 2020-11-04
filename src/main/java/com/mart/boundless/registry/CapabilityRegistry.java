@@ -12,7 +12,7 @@ import top.theillusivec4.curios.api.CuriosCapability;
 public class CapabilityRegistry {
     @SubscribeEvent
     public static void addCapabilities(AttachCapabilitiesEvent<ItemStack> event) {
-        if(event.getObject().getItem() == ItemRegistry.growth_charm.get()) {
+        if(event.getObject().getItem() == ModItems.growth_charm.get()) {
             event.addCapability(CuriosCapability.ID_ITEM, new GrowthCharmProvider());
         }
 
