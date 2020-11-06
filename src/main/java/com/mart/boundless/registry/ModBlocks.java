@@ -2,6 +2,7 @@ package com.mart.boundless.registry;
 
 import com.mart.boundless.Boundless;
 import com.mart.boundless.block.CosmicInfuserBlock;
+import com.mart.boundless.tile.CosmicInfuserTile;
 import com.tterrag.registrate.providers.DataGenContext;
 import com.tterrag.registrate.providers.RegistrateBlockstateProvider;
 import com.tterrag.registrate.util.entry.RegistryEntry;
@@ -45,6 +46,7 @@ public class ModBlocks {
             .item()
             .build()
             .blockstate(ModBlocks::simpleBlockState)
+            .tileEntity(CosmicInfuserTile::new).build()
             .register();
 
 

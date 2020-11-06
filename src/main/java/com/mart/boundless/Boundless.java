@@ -3,6 +3,7 @@ package com.mart.boundless;
 import com.mart.boundless.item.BoundlessItemGroup;
 import com.mart.boundless.registry.ModBlocks;
 import com.mart.boundless.registry.ModItems;
+import com.mart.boundless.registry.ModTiles;
 import com.tterrag.registrate.Registrate;
 import com.tterrag.registrate.util.nullness.NonNullSupplier;
 import net.minecraft.item.ItemGroup;
@@ -27,6 +28,7 @@ public class Boundless {
 
         ModItems.setup();
         ModBlocks.setup();
+        ModTiles.setup();
     }
 
     public void setup(final FMLCommonSetupEvent event) {
