@@ -15,7 +15,7 @@ import net.minecraftforge.items.ItemStackHandler;
 
 import javax.annotation.Nonnull;
 
-public class CosmicInfuserTile extends TileEntity implements ITickableTileEntity {
+public class CosmicInfuserTile extends TileEntityBase implements ITickableTileEntity {
 
     public CosmicInfuserTile(TileEntityType<?> tileEntityTypeIn) {
         super(tileEntityTypeIn);
@@ -46,7 +46,17 @@ public class CosmicInfuserTile extends TileEntity implements ITickableTileEntity
         ItemStack heldItem = player.getHeldItem(hand);
 
         if(BUtil.addStackToInventory(0, inventory, heldItem, player, hand)){
+            if (!world.isRemote) sync();
             return true;
+        }
+
+        if (heldItem.isEmpty() && !world.isRemote && hand == Hand.MAIN_HAND) {
+            if (!inventory.getStackInSlot(0).isEmpty()) {
+                ItemStack extracted = inventory.extractItem(0, inventory.getStackInSlot(0).getCount(), false);
+                player.addItemStackToInventory(extracted);
+                sync();
+                return true;
+            }
         }
 
         return true;

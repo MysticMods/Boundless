@@ -1,6 +1,7 @@
 package com.mart.boundless;
 
 import com.mart.boundless.item.BoundlessItemGroup;
+import com.mart.boundless.network.Networking;
 import com.mart.boundless.proxy.ClientProxy;
 import com.mart.boundless.proxy.ISidedProxy;
 import com.mart.boundless.proxy.ServerProxy;
@@ -41,7 +42,7 @@ public class Boundless {
     }
 
     public void setup(final FMLCommonSetupEvent event) {
-
+        Networking.init();
 
     }
 
