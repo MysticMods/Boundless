@@ -1,5 +1,6 @@
 package com.mart.boundless.tile;
 
+import com.mart.boundless.particle.EnergyParticleData;
 import com.mart.boundless.util.BUtil;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
@@ -25,6 +26,12 @@ public class CosmicInfuserTile extends TileEntityBase implements ITickableTileEn
 
     @Override
     public void tick() {
+        if(getWorld() != null){
+            if(getWorld().isRemote){
+                getWorld().addParticle(EnergyParticleData.withColor(255, 255, 255, 1, 20), true,
+                        getPos().getX(), getPos().getY() + 2, getPos().getZ(), 0, 0.00D, 0);
+            }
+        }
     }
 
     @Override

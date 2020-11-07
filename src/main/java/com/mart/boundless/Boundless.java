@@ -1,5 +1,6 @@
 package com.mart.boundless;
 
+import com.mart.boundless.event.RegistryEvents;
 import com.mart.boundless.item.BoundlessItemGroup;
 import com.mart.boundless.network.Networking;
 import com.mart.boundless.proxy.ClientProxy;
@@ -30,6 +31,8 @@ public class Boundless {
 
     public Boundless(){
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+        FMLJavaModLoadingContext.get().getModEventBus().register(new RegistryEvents());
+        RegistryEvents.init();
 
         proxy.init();
 

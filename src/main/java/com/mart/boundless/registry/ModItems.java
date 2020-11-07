@@ -17,7 +17,6 @@ public class ModItems {
     public static final RegistryEntry<GrowthCharmItem> growth_charm = REGISTRATE.item("growth_charm", GrowthCharmItem::new)
             .register();
 
-
     //public static final RegistryEntry<Item> COSMIC_ORE = ITEMS.register("cosmic_ore", () -> new BlockItem(BlockRegistry.cosmic_ore.get(), new Item.Properties().group(Boundless.ITEM_GROUP)));
     //public static final RegistryEntry<Item> cosmic_infuser = ITEMS.register("cosmic_infuser", () -> new BlockItem(BlockRegistry.cosmic_infuser.get(), new Item.Properties().group(Boundless.ITEM_GROUP)));
 
