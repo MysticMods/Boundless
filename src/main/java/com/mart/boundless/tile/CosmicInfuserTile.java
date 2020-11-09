@@ -28,8 +28,11 @@ public class CosmicInfuserTile extends TileEntityBase implements ITickableTileEn
     public void tick() {
         if(getWorld() != null){
             if(getWorld().isRemote){
-                getWorld().addParticle(EnergyParticleData.withColor(255, 255, 255, 1, 20), true,
-                        getPos().getX(), getPos().getY() + 2, getPos().getZ(), 0, 0.00D, 0);
+                if (getWorld().getGameTime() % 2d == 0) {
+                    getWorld().addParticle(EnergyParticleData.withColor(255, 103, 16,getPos().getX(), getPos().getY() + 4, getPos().getZ(), 1, 100), true,
+                            getPos().getX(), getPos().getY() + 1, getPos().getZ(), 0,0,0);
+
+                }
             }
         }
     }

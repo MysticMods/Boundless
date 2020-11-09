@@ -16,17 +16,19 @@ public class SpriteParticleRenderType implements IParticleRenderType {
     private static void beginRenderCommon(BufferBuilder bufferBuilder, TextureManager textureManager) {
         RenderSystem.depthMask(false);
         RenderSystem.enableBlend();
-        RenderSystem.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
-        RenderSystem.alphaFunc(GL11.GL_GEQUAL, 0.00390625f);
+        RenderSystem.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);
+        RenderSystem.alphaFunc(GL11.GL_GREATER, 0.003921569F);
+        RenderSystem.disableLighting();
 
         textureManager.bindTexture(AtlasTexture.LOCATION_PARTICLES_TEXTURE);
+        textureManager.getTexture(AtlasTexture.LOCATION_PARTICLES_TEXTURE).setBlurMipmap(true, false);
         bufferBuilder.begin(GL11.GL_QUADS, DefaultVertexFormats.PARTICLE_POSITION_TEX_COLOR_LMAP);
     }
 
     private static void endRenderCommon() {
         Minecraft.getInstance().textureManager.getTexture(AtlasTexture.LOCATION_PARTICLES_TEXTURE).restoreLastBlurMipmap();
-        RenderSystem.enableAlphaTest();
-        RenderSystem.defaultAlphaFunc();
+        RenderSystem.alphaFunc(GL11.GL_GREATER, 0.1F);
+        RenderSystem.disableBlend();
         RenderSystem.depthMask(true);
     }
 

@@ -120,9 +120,9 @@ public class EnergyParticleData implements IParticleData {
         }
     };
 
-    public static EnergyParticleData withColor(float red, float green, float blue, float scale, int lifetime)
+    public static EnergyParticleData withColor(float red, float green, float blue, float targetX, float targetY, float targetZ, float scale, int lifetime)
     {
-        return new EnergyParticleData(red,green,blue, 100, 0,0,0, 1, lifetime);
+        return new EnergyParticleData(red,green,blue, 100, targetX,targetY,targetZ, 1, lifetime);
     }
 
     public static class Factory implements IParticleFactory<EnergyParticleData>
