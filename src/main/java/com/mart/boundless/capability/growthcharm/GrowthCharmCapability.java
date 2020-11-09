@@ -1,13 +1,12 @@
 package com.mart.boundless.capability.growthcharm;
 
 import com.mart.boundless.capability.ICapability;
+import com.mart.boundless.util.ParticleUtil;
 import net.minecraft.block.CropsBlock;
-import net.minecraft.block.IGrowable;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.nbt.INBT;
 import net.minecraft.nbt.ListNBT;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 import top.theillusivec4.curios.api.type.capability.ICurio;
 
@@ -19,8 +18,8 @@ public class GrowthCharmCapability implements ICurio, ICapability {
 
     @Override
     public void curioTick(String identifier, int index, LivingEntity livingEntity) {
-        World world = livingEntity.getEntityWorld();
-        if(!world.isRemote){
+        if(!livingEntity.getEntityWorld().isRemote){
+            ServerWorld world = (ServerWorld) livingEntity.getEntityWorld();
             if(world.getGameTime() % 20 == 0){
                 Random rand = new Random();
                 List<BlockPos> plantBlocks = new ArrayList<>();
@@ -37,9 +36,21 @@ public class GrowthCharmCapability implements ICurio, ICapability {
                 }
 
                 for (BlockPos pos: plantBlocks ) {
-                    if(rand.nextInt(10) +1 == 10){
+                    if(rand.nextInt(80) +1 == 80){
                         CropsBlock crop = (CropsBlock)world.getBlockState(pos).getBlock();
                         crop.randomTick(world.getBlockState(pos), (ServerWorld) livingEntity.getEntityWorld(), pos, rand);
+
+                        if (!world.isAreaLoaded(pos, 1)) return; // Forge: prevent loading unloaded chunks when checking neighbor's light
+                        if (world.getLightSubtracted(pos, 0) >= 9) {
+                            boolean i = crop.canGrow(world, pos, world.getBlockState(pos), false);
+                            if (i) {
+                                if (net.minecraftforge.common.ForgeHooks.onCropsGrowPre(world, pos, world.getBlockState(pos), true)) {
+                                    world.setBlockState(pos, crop.withAge(world.getBlockState(pos).get(crop.getAgeProperty()) + 1), 2);
+                                    net.minecraftforge.common.ForgeHooks.onCropsGrowPost(world, pos, world.getBlockState(pos));
+                                    ParticleUtil.spawnServerGrowthCharmParticle(world, pos);
+                                }
+                            }
+                        }
                     }
                 }
             }
