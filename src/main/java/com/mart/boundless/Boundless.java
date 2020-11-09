@@ -10,6 +10,7 @@ import com.mart.boundless.proxy.ISidedProxy;
 import com.mart.boundless.proxy.ServerProxy;
 import com.mart.boundless.registry.ModBlocks;
 import com.mart.boundless.registry.ModItems;
+import com.mart.boundless.registry.ModRituals;
 import com.mart.boundless.registry.ModTiles;
 import com.tterrag.registrate.Registrate;
 import com.tterrag.registrate.util.nullness.NonNullSupplier;
@@ -49,6 +50,7 @@ public class Boundless {
         ModItems.setup();
         ModBlocks.setup();
         ModTiles.setup();
+        ModRituals.setup();
 
         MinecraftForge.EVENT_BUS.register(new ClientEvents());
     }

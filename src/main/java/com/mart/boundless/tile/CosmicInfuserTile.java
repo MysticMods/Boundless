@@ -1,6 +1,8 @@
 package com.mart.boundless.tile;
 
 import com.mart.boundless.particle.EnergyParticleData;
+import com.mart.boundless.registry.ModRituals;
+import com.mart.boundless.ritual.GrowthCharmRitual;
 import com.mart.boundless.util.BUtil;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
@@ -57,6 +59,7 @@ public class CosmicInfuserTile extends TileEntityBase implements ITickableTileEn
 
         if(BUtil.addStackToInventory(0, inventory, heldItem, player, hand)){
             if (!world.isRemote) sync();
+            ModRituals.growth_charm_ritual.activate(this);
             return true;
         }
 
