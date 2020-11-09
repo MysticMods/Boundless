@@ -1,7 +1,8 @@
 package com.mart.boundless.capability.growthcharm;
 
 import com.mart.boundless.capability.ICapability;
-import com.mart.boundless.util.ParticleUtil;
+import com.mart.boundless.event.RegistryEvents;
+import com.mart.boundless.particle.Particles;
 import net.minecraft.block.CropsBlock;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.nbt.INBT;
@@ -47,7 +48,7 @@ public class GrowthCharmCapability implements ICurio, ICapability {
                                 if (net.minecraftforge.common.ForgeHooks.onCropsGrowPre(world, pos, world.getBlockState(pos), true)) {
                                     world.setBlockState(pos, crop.withAge(world.getBlockState(pos).get(crop.getAgeProperty()) + 1), 2);
                                     net.minecraftforge.common.ForgeHooks.onCropsGrowPost(world, pos, world.getBlockState(pos));
-                                    ParticleUtil.spawnServerGrowthCharmParticle(world, pos);
+                                    Particles.create(RegistryEvents.MOVING_PARTICLE).setColor(52,255,36).setAlpha(1).setScale(1).spawn(world, pos.getX(), pos.getY(), pos.getZ());
                                 }
                             }
                         }
