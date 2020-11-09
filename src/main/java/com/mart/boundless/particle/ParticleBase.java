@@ -1,7 +1,12 @@
 package com.mart.boundless.particle;
 
+import com.mart.boundless.config.ClientConfig;
+import com.mart.boundless.event.ClientEvents;
+import com.mart.boundless.util.RenderUtil;
+import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.particle.IParticleRenderType;
 import net.minecraft.client.particle.SpriteTexturedParticle;
+import net.minecraft.client.renderer.ActiveRenderInfo;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -61,11 +66,9 @@ public class ParticleBase extends SpriteTexturedParticle {
             this.setExpired();
         }
 
-        Vector3f beginVec = new Vector3f(this.xpos, this.ypos, this.zpos);
-        Vector3f endVec = new Vector3f(this.targetX, this.targetY, this.targetZ);
-        float dx = (float) (targetX - xpos);
-        float dy = (float) (targetY - ypos);
-        float dz = (float) (targetZ - zpos);
+        float dx = targetX - xpos;
+        float dy = targetY - ypos;
+        float dz = targetZ - zpos;
         float distance = MathHelper.sqrt(dx*dx + dy*dy + dz*dz);
         if (distance > -0.2 && distance < 0.2) {
             this.setExpired();
@@ -82,4 +85,8 @@ public class ParticleBase extends SpriteTexturedParticle {
         this.zpos += this.motionZ / 4;
     }
 
+//    @Override
+//    public void renderParticle(IVertexBuilder b, ActiveRenderInfo info, float pticks) {
+//        super.renderParticle(ClientConfig.BETTER_LAYERING.get() ? ClientEvents.getDelayedRender().getBuffer(RenderUtil.GLOWING_PARTICLE) : b, info, pticks);
+//    }
 }
